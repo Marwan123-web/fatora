@@ -19,7 +19,7 @@ const ItemRow = ({
     price: price,
   });
   const updateItemField = (filedName: string, value: string) => {
-    setItemField({ ...itemField, [filedName]: value });
+    if (value >= "0") setItemField({ ...itemField, [filedName]: value });
   };
   const deleteItemHandler = () => {};
   return (
@@ -43,7 +43,7 @@ const ItemRow = ({
           name={"quantity"}
           id={"quantity"}
           value={itemField.quantity}
-          min={1}
+          min={0}
           step={1}
           changeFun={(value: string) => updateItemField("quantity", value)}
         />
@@ -72,7 +72,7 @@ const ItemRow = ({
           name={"price"}
           id={"price"}
           value={itemField.price}
-          min={1}
+          min={0}
           step={1}
           changeFun={(value: string) => updateItemField("price", value)}
         />
