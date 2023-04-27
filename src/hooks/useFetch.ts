@@ -24,7 +24,6 @@ const useFetch = ({
           ...(method !== "GET" && { data: body }),
           params: params,
         });
-        console.log(response.data);
 
         setData(response.data);
       } catch (err: any) {
