@@ -12,7 +12,7 @@ import ScrollToTop from "./shared/ScrollToTop";
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: "ar", // default language
+  lng: "en", // default language
   resources: {
     en: {
       common: common_en,

@@ -1,7 +1,7 @@
 import "./App.scss";
 import { useTranslation } from "react-i18next";
 import useFetch from "./hooks/useFetch";
-import { Routes, Route } from "react-router-dom";
+import Invoice from "./components/invoice/Invoice";
 function App() {
   const { data, loading, error } = useFetch({
     url: "https://jsonplaceholder.typicode.com/todos/1",
@@ -12,12 +12,13 @@ function App() {
     console.log(error);
   }
   return (
-    <div className="App" dir={i18n.language === "en" ? "ltr" : "rtl"}>
-      <Routes>
-        <Route path="/" element={""} />
-      </Routes>
-      {loading && <div>Loading...</div>}
-      {data && data?.id + "" + t("hello") + " " + i18n.language}
+    <div
+      className="min-h-screen bg-gray-100"
+      dir={i18n.language === "en" ? "ltr" : "rtl"}
+    >
+      <div className="mx-auto max-w-7xl">
+        <Invoice />
+      </div>
     </div>
   );
 }
