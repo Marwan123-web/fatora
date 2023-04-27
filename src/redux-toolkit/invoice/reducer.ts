@@ -28,15 +28,36 @@ export const invoiceReducers = {
     localStorageMethods.updateItem("invoice", state);
   },
   updateInvInfo: (state: any, action: any) => {
-    state.cashierName = action.payload.cashierName;
-    state.customerName = action.payload.customerName;
+    console.log(action.payload);
+
+    action.payload.cashierName &&
+      (state.cashierName = action.payload.cashierName);
+
+    action.payload.customerName &&
+      (state.customerName = action.payload.customerName);
+
+    action.payload.taxRate && (state.taxRate = action.payload.taxRate);
+
+    action.payload.discountRate &&
+      (state.discountRate = action.payload.discountRate);
+
     localStorageMethods.updateItem("invoice", state);
   },
-  calcTotal: (state: any) => {
-    let total = 0;
+
+  calcTotals: (state: any) => {
+    let subTotal = 0;
     state.items.forEach((item: any) => {
-      total = total + parseInt(item.price) * item.quantity;
+      subTotal = subTotal + parseInt(item.price) * item.quantity;
     });
-    state.total = total;
+
+    state.subTotal = subTotal || 0;
+
+    state.tax = (parseInt(state.subTotal) * parseInt(state.taxRate)) / 100 || 0;
+    state.discount =
+      (parseInt(state.subTotal) * parseInt(state.discountRate)) / 100 || 0;
+
+    state.total = state.subTotal + state.tax + state.discount || 0;
+
+    localStorageMethods.updateItem("invoice", state);
   },
 };

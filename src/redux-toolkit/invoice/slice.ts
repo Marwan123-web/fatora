@@ -9,7 +9,13 @@ const invoiceinitialState =
     : localStorageMethods.addIetm("invoice", {
         cashierName: "",
         customerName: "",
-        items: [{ id: "0", name: "", price: 1, quantity: 1 }],
+        taxRate: "",
+        discountRate: "",
+        subTotal: 0,
+        tax: 0,
+        discount: 0,
+        total: 0,
+        items: [{ id: "0", name: "", price: 0, quantity: 1 }],
       });
 
 export const invoiceSlice = createSlice({
@@ -17,12 +23,18 @@ export const invoiceSlice = createSlice({
   initialState: invoiceinitialState || {
     cashierName: "",
     customerName: "",
-    items: [{ id: "0", name: "", price: 1, quantity: 1 }],
+    taxRate: "",
+    discountRate: "",
+    subTotal: 0,
+    tax: 0,
+    discount: 0,
+    total: 0,
+    items: [{ id: "0", name: "", price: 0, quantity: 1 }],
   },
   reducers: invoiceReducers,
 });
 
-export const { addItem, editItem, deleteItem, calcTotal, updateInvInfo } =
+export const { addItem, editItem, deleteItem, calcTotals, updateInvInfo } =
   invoiceSlice.actions;
 
 export default invoiceSlice.reducer;
