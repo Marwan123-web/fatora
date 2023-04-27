@@ -5,11 +5,13 @@ const Button = ({
   label,
   ButtonFun,
   children,
+  type = "button",
 }: {
   classes: string;
   label?: string;
   ButtonFun?: Function;
   children?: any;
+  type?: any;
 }) => {
   const { t } = useTranslation("common");
 
@@ -17,7 +19,7 @@ const Button = ({
     if (ButtonFun) ButtonFun();
   };
   return (
-    <button className={classes} onClick={() => runButtonFun()}>
+    <button className={classes} onClick={() => runButtonFun()} type={type}>
       {label && t(label)}
       {!label && children}
     </button>

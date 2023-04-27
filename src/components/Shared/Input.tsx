@@ -14,8 +14,8 @@ const Input = ({
 }: {
   classes?: string;
   type?: string;
-  id?: string;
-  name?: string;
+  id: string;
+  name: string;
   placeholder?: string;
   required?: boolean;
   label?: string;

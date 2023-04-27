@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux-toolkit/invoice/slice";
 import Button from "../Shared/Button";
@@ -7,12 +8,16 @@ import ItemsTable from "./ItemsTable";
 import Summary from "./Summary";
 
 const Invoice = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const invoice = useSelector((state: any) => state.invoice);
   const dispatch = useDispatch();
   const addItemHandler = () => {
     dispatch(addItem());
   };
-  const reviewInvoiceHandler = () => {};
+  const reviewInvoiceHandler = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <form
@@ -33,6 +38,15 @@ const Invoice = () => {
       </div>
       <div className="basis-1/4 bg-transparent">
         <div className="sticky top-0 z-10 space-y-4 divide-y divide-gray-900/10 pb-8 md:pt-6 md:pl-4">
+          <Button
+            classes={
+              "w-full rounded-md bg-blue-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
+            }
+            type="submit"
+          >
+            Review Invoice
+          </Button>
+          {/* {isOpen && <InvoiceModal />} */}
           <Summary />
         </div>
       </div>
