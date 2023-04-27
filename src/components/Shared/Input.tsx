@@ -9,6 +9,8 @@ const Input = ({
   changeFun,
   value = "",
   classes,
+  min,
+  step
 }: {
   classes?: string;
   type?: string;
@@ -20,6 +22,8 @@ const Input = ({
   children?: any;
   changeFun?: Function;
   value?: string | number;
+  min?: string | number;
+  step?: string | number;
 }) => {
   const RunChangeFun = (e: any) => {
     if (changeFun) {
@@ -39,6 +43,8 @@ const Input = ({
         required={required}
         onChange={(e) => RunChangeFun(e)}
         value={value}
+        min={min}
+        step={step}
       />
     </div>
   );
