@@ -10,7 +10,7 @@ const Input = ({
   value = "",
   classes,
   min,
-  step
+  step,
 }: {
   classes?: string;
   type?: string;
@@ -31,7 +31,7 @@ const Input = ({
     }
   };
   return (
-    <div>
+    <>
       {label && <label htmlFor={id}>{label}</label>}
       {children}
       <input
@@ -46,7 +46,7 @@ const Input = ({
         min={min}
         step={step}
       />
-    </div>
+    </>
   );
 };
 
