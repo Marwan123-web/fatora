@@ -12,7 +12,7 @@ const ItemsTable = ({ items }: { items: Array<any> }) => {
         </tr>
       </thead>
       <tbody>
-        {items.map((item, index: number) => (
+        {items?.map((item, index: number) => (
           <ItemRow
             key={index}
             id={item.id}

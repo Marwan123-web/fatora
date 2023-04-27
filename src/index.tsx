@@ -9,7 +9,8 @@ import common_en from "./assets/local/common/en.json";
 import common_ar from "./assets/local/common/ar.json";
 import { BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./shared/ScrollToTop";
-
+import { Provider } from "react-redux";
+import { store } from "./redux-toolkit/store";
 i18next.init({
   interpolation: { escapeValue: false },
   lng: "en", // default language
@@ -28,12 +29,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <I18nextProvider i18n={i18next}>
-      <BrowserRouter>
-        <ScrollToTop />
-        <App />
-      </BrowserRouter>
-    </I18nextProvider>
+    <Provider store={store}>
+      <I18nextProvider i18n={i18next}>
+        <BrowserRouter>
+          <ScrollToTop />
+          <App />
+        </BrowserRouter>
+      </I18nextProvider>
+    </Provider>
   </React.StrictMode>
 );
 

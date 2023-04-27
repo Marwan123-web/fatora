@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../redux-toolkit/invoice/slice";
 import Button from "../Shared/Button";
 import Header from "./Header";
 import Info from "./Info";
@@ -5,7 +7,11 @@ import ItemsTable from "./ItemsTable";
 import Summary from "./Summary";
 
 const Invoice = () => {
-  const addItemHandler = () => {};
+  const invoice = useSelector((state: any) => state.invoice);
+  const dispatch = useDispatch();
+  const addItemHandler = () => {
+    dispatch(addItem());
+  };
   const reviewInvoiceHandler = () => {};
 
   return (
@@ -17,7 +23,7 @@ const Invoice = () => {
         <Header />
         <h1 className="text-center text-lg font-bold">INVOICE</h1>
         <Info />
-        <ItemsTable items={[{ id: "1", name: "1", price: 1, quantity: 1 }]} />
+        <ItemsTable items={invoice.items} />
         <Button
           classes="rounded-md bg-blue-500 px-4 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
           ButtonFun={addItemHandler}

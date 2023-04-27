@@ -1,14 +1,23 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateInvInfo } from "../../redux-toolkit/invoice/slice";
 import Input from "../Shared/Input";
 
 const Info = () => {
+  const dispatch = useDispatch();
+
+  const invoice = useSelector((state: any) => state.invoice);
+
   const [invoiceInfo, setInvoiceInfo] = useState({
-    cashierName: "",
-    customerName: "",
+    cashierName: invoice.cashierName,
+    customerName: invoice.customerName,
   });
+
   const updateInvoiceInfo = (filedName: string, value: string) => {
     setInvoiceInfo({ ...invoiceInfo, [filedName]: value });
+    dispatch(updateInvInfo({ ...invoiceInfo, [filedName]: value } as any));
   };
+
   return (
     <div className="grid grid-cols-2 gap-2 pt-4 pb-8">
       <label htmlFor="cashierName" className="text-sm font-bold sm:text-base">
