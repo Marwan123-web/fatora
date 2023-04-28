@@ -9,15 +9,7 @@ const InvoiceModal = ({ close }: { close: any }) => {
   const invoices = useSelector((state: any) => state.invoices);
 
   const dispatch = useDispatch();
-  const SaveAsPDFHandler = async (e: any) => {
-    e.preventDefault();
-    let htmlString = document.getElementById("print") as any;
-    await htmlStringToPdf("1", htmlString).then((res: any) => {
-      dispatch(addInvoice({ ...invoice, invoiceNumber: `${invoices.length}` }));
-      dispatch(emptyInvoice());
-      window.location.href = "/invoices/" + invoices.length;
-    });
-  };
+
   const addNextInvoiceHandler = (e: any) => {
     e.preventDefault();
     dispatch(addInvoice({ ...invoice, invoiceNumber: `${invoices.length}` }));
@@ -111,26 +103,6 @@ const InvoiceModal = ({ close }: { close: any }) => {
           </div>
         </div>
         <div className="mt-4 flex space-x-2 px-4 pb-6">
-          <button
-            className="flex w-full items-center justify-center space-x-1 rounded-md border border-blue-500 py-2 text-sm text-blue-500 shadow-sm hover:bg-blue-500 hover:text-white"
-            onClick={SaveAsPDFHandler}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              />
-            </svg>
-            <span>Save & Download</span>
-          </button>
           <button
             onClick={addNextInvoiceHandler}
             className="flex w-full items-center justify-center space-x-1 rounded-md bg-blue-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
