@@ -6,7 +6,7 @@ const InvoiceModal = ({ close }: { close: any }) => {
   const SaveAsPDFHandler = async (e: any) => {
     e.preventDefault();
     let htmlString = document.getElementById("print") as any;
-    await htmlStringToPdf("1", htmlString.innerHTML as any);
+    await htmlStringToPdf("1", htmlString);
   };
   const addNextInvoiceHandler = (e: any) => {
     e.preventDefault();
