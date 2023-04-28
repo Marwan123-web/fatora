@@ -28,8 +28,6 @@ export const invoiceReducers = {
     localStorageMethods.updateItem("invoice", state);
   },
   updateInvInfo: (state: any, action: any) => {
-    console.log(action.payload);
-
     action.payload.cashierName &&
       (state.cashierName = action.payload.cashierName);
 
@@ -56,8 +54,24 @@ export const invoiceReducers = {
     state.discount =
       (parseInt(state.subTotal) * parseInt(state.discountRate)) / 100 || 0;
 
-    state.total = state.subTotal + state.tax + state.discount || 0;
+    state.total = state.subTotal + state.tax - state.discount || 0;
 
+    localStorageMethods.updateItem("invoice", state);
+  },
+
+  emptyInvoice: (state: any) => {
+    state = {
+      invoiceNumber: "0",
+      cashierName: "",
+      customerName: "",
+      taxRate: "",
+      discountRate: "",
+      subTotal: 0,
+      tax: 0,
+      discount: 0,
+      total: 0,
+      items: [{ id: "0", name: "", price: 0, quantity: 1 }],
+    };
     localStorageMethods.updateItem("invoice", state);
   },
 };

@@ -1,15 +1,28 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { emptyInvoice } from "../../redux-toolkit/invoice/slice";
+import { addInvoice } from "../../redux-toolkit/invoices/slice";
 import { htmlStringToPdf } from "../../shared/ConvertToPdf";
 
 const InvoiceModal = ({ close }: { close: any }) => {
   const invoice = useSelector((state: any) => state.invoice);
+
+  const invoices = useSelector((state: any) => state.invoices);
+
+  const dispatch = useDispatch();
   const SaveAsPDFHandler = async (e: any) => {
     e.preventDefault();
     let htmlString = document.getElementById("print") as any;
-    await htmlStringToPdf("1", htmlString);
+    await htmlStringToPdf("1", htmlString).then((res: any) => {
+      dispatch(addInvoice({ ...invoice, invoiceNumber: `${invoices.length}` }));
+      dispatch(emptyInvoice());
+      window.location.href = "/invoices/" + invoices.length;
+    });
   };
   const addNextInvoiceHandler = (e: any) => {
     e.preventDefault();
+    dispatch(addInvoice({ ...invoice, invoiceNumber: `${invoices.length}` }));
+    dispatch(emptyInvoice());
+    window.location.href = "/invoices/" + invoices.length;
   };
 
   return (

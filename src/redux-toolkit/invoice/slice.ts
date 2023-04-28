@@ -7,6 +7,7 @@ const invoiceinitialState =
   localStorageMethods.getItem("invoice") !== undefined
     ? localStorageMethods.getItem("invoice")
     : localStorageMethods.addIetm("invoice", {
+        invoiceNumber: "0",
         cashierName: "",
         customerName: "",
         taxRate: "",
@@ -21,6 +22,7 @@ const invoiceinitialState =
 export const invoiceSlice = createSlice({
   name: "invoice",
   initialState: invoiceinitialState || {
+    invoiceNumber: "0",
     cashierName: "",
     customerName: "",
     taxRate: "",
@@ -34,7 +36,13 @@ export const invoiceSlice = createSlice({
   reducers: invoiceReducers,
 });
 
-export const { addItem, editItem, deleteItem, calcTotals, updateInvInfo } =
-  invoiceSlice.actions;
+export const {
+  addItem,
+  editItem,
+  deleteItem,
+  calcTotals,
+  updateInvInfo,
+  emptyInvoice,
+} = invoiceSlice.actions;
 
 export default invoiceSlice.reducer;
