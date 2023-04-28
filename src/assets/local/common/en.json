@@ -1,3 +1,9 @@
 {
-  "hello": "Hello"
+  "hello": "Hello",
+  "navbar": {
+    "ar": "Arabic",
+    "en": "English",
+    "invoices": "invoices",
+    "createInvoice": "Create Invoice"
+  }
 }

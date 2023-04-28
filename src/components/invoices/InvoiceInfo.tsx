@@ -19,7 +19,29 @@ const InvoiceInfo = () => {
 
   return (
     <>
-      <div className="p-4 max-w-md align-middle m-auto" id="print">
+      <div className="mt-4 flex space-x-2 px-4 pb-6 max-w-md  m-auto">
+        <button
+          onClick={SaveAsPDFHandler}
+          className="flex w-full items-center justify-center space-x-1 rounded-md bg-blue-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+            />
+          </svg>
+          <span>Download</span>
+        </button>
+      </div>
+      <div className="p-4 max-w-md align-middle m-auto bg-white" id="print">
         <h1 className="text-center text-lg font-bold text-gray-900">INVOICE</h1>
         <div className="mt-6">
           <div className="mb-4 grid grid-cols-2">
@@ -40,7 +62,7 @@ const InvoiceInfo = () => {
                 <th className="text-right">AMOUNT</th>
               </tr>
             </thead>
-            <tbody className="h-[20vh]">
+            <tbody>
               {invoice.items.map((item: any) => (
                 <tr key={item.id}>
                   <td className="w-full">{item.name}</td>
