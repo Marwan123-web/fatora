@@ -1,3 +1,17 @@
+# Project Description
+
+Fatora is a Receipts App built by React and use redux/toolkit to handle receipts functions
+
+# Tools
+
+React\
+Tailwind CSS\
+Redux/Toolkit State Management\
+i18next\
+flowbite\
+html2canvas\
+jspdf
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
