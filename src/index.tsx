@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux-toolkit/store";
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: "en", // default language
+  lng: localStorage.getItem("lang") || "en", // default language
   resources: {
     en: {
       common: common_en,

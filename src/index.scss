@@ -71,3 +71,18 @@
   opacity: 0.1;
   background-size: contain;
 }
+
+.flag {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  &.en {
+    background-image: url("./assets/images/en-flag.jpg");
+  }
+  &.ar {
+    background-image: url("./assets/images/ar-flag.png");
+  }
+}

@@ -25,12 +25,12 @@ const Header = () => {
   };
   return (
     <div className="flex flex-col justify-between space-y-2 border-b border-gray-900/10 pb-4 md:flex-row md:items-center md:space-y-0">
-      <div className="flex space-x-2">
+      <div className="flex ">
         <span className="font-bold">{t("invoice.currentDate")}: </span>
-        <span>{today}</span>
+        <span className="mx-2">{today}</span>
       </div>
-      <div className="flex items-center space-x-2">
-        <label className="font-bold" htmlFor="invoiceNumber">
+      <div className="flex items-center ">
+        <label className="font-bold mx-2" htmlFor="invoiceNumber">
           {t("invoice.invoiceNumbe")}:
         </label>
 

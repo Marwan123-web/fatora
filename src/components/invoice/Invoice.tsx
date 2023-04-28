@@ -38,9 +38,8 @@ const Invoice = () => {
         <Button
           classes="rounded-md bg-blue-500 px-4 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
           ButtonFun={addItemHandler}
-        >
-          {"addItem"}
-        </Button>
+          label={"invoice.addItem"}
+        ></Button>
       </div>
       <div className="basis-1/4 bg-transparent">
         <div className="sticky top-0 z-10 divide-y divide-gray-900/10 pb-8 my-6">

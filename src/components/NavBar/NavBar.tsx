@@ -55,11 +55,10 @@ const NavBar = () => {
                 <NavLink to={nav?.url}>{t(nav?.name)}</NavLink>
               </li>
             ))}
-            <li onClick={() => changeLangFun()}>
-              <span className="lang-btn">
-                {i18n.language === "en" ? t("navbar.ar") : t("navbar.en")}
-              </span>
-            </li>
+            <li
+              onClick={() => changeLangFun()}
+              className={"flag " + (i18n.language === "en" ? "ar" : "en")}
+            ></li>
           </ul>
         </div>
       </div>
