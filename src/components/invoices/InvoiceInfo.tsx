@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { deleteInvoice } from "../../redux-toolkit/invoices/slice";
 import { htmlStringToPdf } from "../../shared/ConvertToPdf";
+import Button from "../Shared/Button";
 
 const InvoiceInfo = () => {
   const params = useParams();
@@ -27,9 +28,9 @@ const InvoiceInfo = () => {
   return (
     <>
       <div className="mt-4 flex space-x-2 px-4 pb-6 max-w-md  m-auto">
-        <button
-          onClick={SaveAsPDFHandler}
-          className="flex w-full items-center justify-center space-x-1 rounded-md bg-blue-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
+        <Button
+          ButtonFun={SaveAsPDFHandler}
+          classes="flex w-full items-center justify-center space-x-1 rounded-md bg-blue-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +47,7 @@ const InvoiceInfo = () => {
             />
           </svg>
           <span>Download</span>
-        </button>
+        </Button>
         {/* <button
           onClick={editInvoiceFun}
           className="flex w-full items-center justify-center space-x-1 rounded-md bg-green-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
@@ -67,9 +68,10 @@ const InvoiceInfo = () => {
           </svg>
           <span>Edit</span>
         </button> */}
-        <button
-          onClick={deleteInvoiceFun}
-          className="flex w-full items-center justify-center space-x-1 rounded-md bg-red-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
+
+        <Button
+          ButtonFun={SaveAsPDFHandler}
+          classes="flex w-full items-center justify-center space-x-1 rounded-md bg-red-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +88,7 @@ const InvoiceInfo = () => {
             />
           </svg>
           <span>Delete</span>
-        </button>
+        </Button>
       </div>
       <div className="p-4 max-w-md align-middle m-auto bg-white" id="print">
         <h1 className="text-center text-lg font-bold text-gray-900">INVOICE</h1>

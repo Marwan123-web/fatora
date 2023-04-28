@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { emptyInvoice } from "../../redux-toolkit/invoice/slice";
 import { addInvoice } from "../../redux-toolkit/invoices/slice";
-import { htmlStringToPdf } from "../../shared/ConvertToPdf";
+import Button from "../Shared/Button";
 
 const InvoiceModal = ({ close }: { close: any }) => {
   const invoice = useSelector((state: any) => state.invoice);
@@ -103,9 +103,9 @@ const InvoiceModal = ({ close }: { close: any }) => {
           </div>
         </div>
         <div className="mt-4 flex space-x-2 px-4 pb-6">
-          <button
-            onClick={addNextInvoiceHandler}
-            className="flex w-full items-center justify-center space-x-1 rounded-md bg-blue-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
+          <Button
+            ButtonFun={addNextInvoiceHandler}
+            classes="flex w-full items-center justify-center space-x-1 rounded-md bg-blue-500 py-2 text-sm text-white shadow-sm hover:bg-blue-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@ const InvoiceModal = ({ close }: { close: any }) => {
               />
             </svg>
             <span>Save</span>
-          </button>
+          </Button>
         </div>
       </div>
     </div>
