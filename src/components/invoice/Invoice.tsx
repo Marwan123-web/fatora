@@ -4,6 +4,7 @@ import { addItem } from "../../redux-toolkit/invoice/slice";
 import Button from "../Shared/Button";
 import Header from "./Header";
 import Info from "./Info";
+import InvoiceModal from "./InvoiceModal";
 import ItemsTable from "./ItemsTable";
 import Summary from "./Summary";
 
@@ -15,7 +16,8 @@ const Invoice = () => {
   const addItemHandler = () => {
     dispatch(addItem());
   };
-  const reviewInvoiceHandler = () => {
+  const reviewInvoiceHandler = (e: any) => {
+    e.preventDefault();
     setIsOpen(!isOpen);
   };
 
@@ -46,7 +48,15 @@ const Invoice = () => {
           >
             Review Invoice
           </Button>
-          {/* {isOpen && <InvoiceModal />} */}
+          {isOpen && (
+            <div className="fixed inset-0 bg-black/50">
+              <InvoiceModal
+                close={() => {
+                  setIsOpen(!isOpen);
+                }}
+              />
+            </div>
+          )}
           <Summary />
         </div>
       </div>

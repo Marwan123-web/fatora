@@ -35,3 +35,27 @@
     @apply p-1 md:p-1.5;
   }
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-blue-200;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-500;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-600;
+}
+
+.titleInv {
+  @apply text-center text-lg font-bold text-gray-900;
+}

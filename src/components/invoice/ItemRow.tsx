@@ -63,7 +63,7 @@ const ItemRow = ({
           changeFun={(value: string) => updateItemField("quantity", value)}
         />
       </td>
-      <td className="relative min-w-[100px] md:min-w-[150px]">
+      <td className=" min-w-[100px] md:min-w-[150px]">
         <Input
           required={true}
           placeholder={"Item price"}
