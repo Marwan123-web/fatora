@@ -1,9 +1,12 @@
+import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
 import { emptyInvoice } from "../../redux-toolkit/invoice/slice";
 import { addInvoice } from "../../redux-toolkit/invoices/slice";
 import Button from "../Shared/Button";
 
 const InvoiceModal = ({ close }: { close: any }) => {
+  const { t } = useTranslation("common");
+
   const invoice = useSelector((state: any) => state.invoice);
 
   const invoices = useSelector((state: any) => state.invoices);
@@ -38,25 +41,25 @@ const InvoiceModal = ({ close }: { close: any }) => {
         </strong>
         <div className="p-4" id="print">
           <h1 className="text-center text-lg font-bold text-gray-900">
-            INVOICE
+            {t("invoice.invoice")}
           </h1>
           <div className="mt-6">
             <div className="mb-4 grid grid-cols-2">
-              <span className="font-bold">Invoice Number:</span>
+              <span className="font-bold">{t("invoice.invoiceNumbe")}:</span>
               <span>{invoice.invoiceNumber}</span>
-              <span className="font-bold">Cashier:</span>
+              <span className="font-bold">{t("invoice.cashier")}:</span>
               <span>{invoice.cashierName}</span>
-              <span className="font-bold">Customer:</span>
+              <span className="font-bold">{t("invoice.customer")}:</span>
               <span>{invoice.customerName}</span>
             </div>
 
             <table className="w-full text-left">
               <thead>
                 <tr className="border-y border-black/10 text-sm md:text-base">
-                  <th>ITEM</th>
-                  <th className="text-center">QTY</th>
-                  <th className="text-right">PRICE</th>
-                  <th className="text-right">AMOUNT</th>
+                  <th>{t("invoice.item")}</th>
+                  <th className="text-center">{t("invoice.qty")}</th>
+                  <th className="text-right">{t("invoice.price")}</th>
+                  <th className="text-right">{t("invoice.amount")}</th>
                 </tr>
               </thead>
               <tbody className="h-[20vh]">
@@ -79,19 +82,19 @@ const InvoiceModal = ({ close }: { close: any }) => {
 
             <div className="mt-4 flex flex-col items-end space-y-2">
               <div className="flex w-full justify-between border-t border-black/10 pt-2">
-                <span className="font-bold">Subtotal:</span>
+                <span className="font-bold">{t("invoice.subtotal")}:</span>
                 <span>£{invoice.subTotal.toFixed(2)}</span>
               </div>
               <div className="flex w-full justify-between">
-                <span className="font-bold">Discount:</span>
+                <span className="font-bold">{t("invoice.discount")}:</span>
                 <span>£{parseFloat(invoice.discount).toFixed(2)}</span>
               </div>
               <div className="flex w-full justify-between">
-                <span className="font-bold">Tax:</span>
+                <span className="font-bold">{t("invoice.tax")}:</span>
                 <span>£{parseFloat(invoice.tax).toFixed(2)}</span>
               </div>
               <div className="flex w-full justify-between border-t border-black/10 py-2">
-                <span className="font-bold">Total:</span>
+                <span className="font-bold">{t("invoice.total")}:</span>
                 <span className="font-bold">
                   £
                   {invoice.total % 1 === 0
@@ -121,7 +124,7 @@ const InvoiceModal = ({ close }: { close: any }) => {
                 d="M13 5l7 7-7 7M5 5l7 7-7 7"
               />
             </svg>
-            <span>Save</span>
+            <span>{t("save")}</span>
           </Button>
         </div>
       </div>

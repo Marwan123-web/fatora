@@ -1,3 +1,35 @@
 {
-  "hello": "مرحباً"
+  "hello": "مرحباً ar",
+  "navbar": {
+    "ar": "Arabic ar",
+    "en": "English ar",
+    "invoices": "invoices ar",
+    "createInvoice": "Create Invoice"
+  },
+  "invoice": {
+    "currentDate": "Current Date ar",
+    "invoiceNumbe": "Invoice Numbe ar",
+    "cashier": "Cashier ar",
+    "customer": "Customer ar",
+    "invoice": "INVOICE ar",
+    "item": "ITEM ar",
+    "qty": "QTY ar",
+    "price": "PRICE ar",
+    "amount": "AMOUNT ar",
+    "action": "ACTION ar",
+    "taxRate": "Tax rate ar",
+    "discountRate": "Discount rate ar",
+    "subtotal": "Subtotal ar",
+    "discount": "Discount ar",
+    "tax": "Tax ar",
+    "total": "Total ar",
+    "reviewInvoice": "Review Invoice ar",
+    "addItem": "Add Item ar",
+    "id": "ID ar",
+    "view": "VIEW ar",
+    "items": "Items ar",
+    "download": "Download ar",
+    "delete": "Download ar"
+  },
+  "save": "Save ar"
 }

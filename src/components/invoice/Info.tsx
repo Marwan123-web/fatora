@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { updateInvInfo } from "../../redux-toolkit/invoice/slice";
 import Input from "../Shared/Input";
 
 const Info = () => {
+  const { t } = useTranslation("common");
+
   const dispatch = useDispatch();
 
   const invoice = useSelector((state: any) => state.invoice);
@@ -21,7 +24,7 @@ const Info = () => {
   return (
     <div className="grid grid-cols-2 gap-2 pt-4 pb-8">
       <label htmlFor="cashierName" className="text-sm font-bold sm:text-base">
-        Cashier:
+        {t("invoice.cashier")}:
       </label>
 
       <Input
@@ -38,7 +41,7 @@ const Info = () => {
         htmlFor="customerName"
         className="col-start-2 row-start-1 text-sm font-bold md:text-base"
       >
-        Customer:
+        {t("invoice.customer")}:
       </label>
 
       <Input

@@ -1,14 +1,17 @@
+import { useTranslation } from "react-i18next";
 import ItemRow from "./ItemRow";
 
 const ItemsTable = ({ items }: { items: Array<any> }) => {
+  const { t } = useTranslation("common");
+
   return (
     <table className="w-full p-4 text-left">
       <thead>
         <tr className="border-b border-gray-900/10 text-sm md:text-base">
-          <th>ITEM</th>
-          <th>QTY</th>
-          <th className="text-center">PRICE</th>
-          <th className="text-center">ACTION</th>
+          <th>{t("invoice.item")}</th>
+          <th>{t("invoice.qty")}</th>
+          <th className="text-center">{t("invoice.price")}</th>
+          <th className="text-center">{t("invoice.action")}</th>
         </tr>
       </thead>
       <tbody>

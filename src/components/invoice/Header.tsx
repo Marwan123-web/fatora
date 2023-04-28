@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Input from "../Shared/Input";
 
 const Header = () => {
@@ -8,6 +9,7 @@ const Header = () => {
     day: "numeric",
     year: "numeric",
   });
+  const { t } = useTranslation("common");
 
   const [invoiceNumber, setInvoiceNumber] = useState("1");
   const updateInvoiceNumber = (value: string) => {
@@ -16,12 +18,12 @@ const Header = () => {
   return (
     <div className="flex flex-col justify-between space-y-2 border-b border-gray-900/10 pb-4 md:flex-row md:items-center md:space-y-0">
       <div className="flex space-x-2">
-        <span className="font-bold">Current Date: </span>
+        <span className="font-bold">{t("invoice.currentDate")}: </span>
         <span>{today}</span>
       </div>
       <div className="flex items-center space-x-2">
         <label className="font-bold" htmlFor="invoiceNumber">
-          Invoice Number:
+          {t("invoice.invoiceNumbe")}:
         </label>
 
         <Input

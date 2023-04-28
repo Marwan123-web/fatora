@@ -5,5 +5,31 @@
     "en": "English",
     "invoices": "invoices",
     "createInvoice": "Create Invoice"
-  }
+  },
+  "invoice": {
+    "currentDate": "Current Date",
+    "invoiceNumbe": "Invoice Numbe",
+    "cashier": "Cashier",
+    "customer": "Customer",
+    "invoice": "INVOICE",
+    "item": "ITEM",
+    "qty": "QTY",
+    "price": "PRICE",
+    "amount": "AMOUNT",
+    "action": "ACTION",
+    "taxRate": "Tax rate",
+    "discountRate": "Discount rate",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "tax": "Tax",
+    "total": "Total",
+    "reviewInvoice": "Review Invoice",
+    "addItem": "Add Item",
+    "id": "ID",
+    "view": "VIEW",
+    "items": "Items",
+    "download": "Download",
+    "delete": "Download"
+  },
+  "save": "Save"
 }
