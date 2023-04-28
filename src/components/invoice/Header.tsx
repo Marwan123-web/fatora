@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { updateInvInfo } from "../../redux-toolkit/invoice/slice";
 import Input from "../Shared/Input";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const invoice = useSelector((state: any) => state.invoice);
+
   const date = new Date();
   const today = date.toLocaleDateString("en-EG", {
     month: "long",
@@ -11,9 +16,12 @@ const Header = () => {
   });
   const { t } = useTranslation("common");
 
-  const [invoiceNumber, setInvoiceNumber] = useState("1");
+  const [invoiceNumber, setInvoiceNumber] = useState(invoice.invoiceNumber);
   const updateInvoiceNumber = (value: string) => {
-    if (value! > "0") setInvoiceNumber(value);
+    if (value >= "0") {
+      setInvoiceNumber(value);
+      dispatch(updateInvInfo({ invoiceNumber: value } as any));
+    }
   };
   return (
     <div className="flex flex-col justify-between space-y-2 border-b border-gray-900/10 pb-4 md:flex-row md:items-center md:space-y-0">

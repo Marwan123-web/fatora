@@ -39,6 +39,8 @@ export const invoiceReducers = {
     action.payload.discountRate &&
       (state.discountRate = action.payload.discountRate);
 
+    action.payload.invoiceNumber &&
+      (state.invoiceNumber = action.payload.invoiceNumber);
     localStorageMethods.updateItem("invoice", state);
   },
 
