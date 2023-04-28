@@ -14,6 +14,6 @@ export const invoicesSlice = createSlice({
   reducers: invoicesReducers,
 });
 
-export const { addInvoice, editInvoice, deleteInvoice } = invoicesSlice.actions;
+export const { addInvoice, deleteInvoice } = invoicesSlice.actions;
 
 export default invoicesSlice.reducer;
