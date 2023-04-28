@@ -74,24 +74,33 @@ const Summary = () => {
       <div className="flex flex-col items-end space-y-2 pt-6">
         <div className="flex w-full justify-between">
           <span className="font-bold">{t("invoice.subtotal")}:</span>
-          <span>£{invoice.subTotal.toFixed(2)}</span>
+          <span>
+            {t("£")}
+            {invoice.subTotal.toFixed(2)}
+          </span>
         </div>
         <div className="flex w-full justify-between">
           <span className="font-bold">
             {t("invoice.discount")} ({invSummery.discountRate || "0"}%):
           </span>
-          <span>£{parseFloat(invoice.discount).toFixed(2)}</span>
+          <span>
+            {t("£")}
+            {parseFloat(invoice.discount).toFixed(2)}
+          </span>
         </div>
         <div className="flex w-full justify-between">
           <span className="font-bold">
             {t("invoice.tax")} ({invSummery.taxRate || "0"}%):
           </span>
-          <span>£{parseFloat(invoice.tax).toFixed(2)}</span>
+          <span>
+            {t("£")}
+            {parseFloat(invoice.tax).toFixed(2)}
+          </span>
         </div>
         <div className="flex w-full justify-between border-t border-gray-900/10 pt-2">
           <span className="font-bold">{t("invoice.total")}:</span>
           <span className="font-bold">
-            £
+            {t("£")}
             {invoice.total % 1 === 0 ? invoice.total : invoice.total.toFixed(2)}
           </span>
         </div>

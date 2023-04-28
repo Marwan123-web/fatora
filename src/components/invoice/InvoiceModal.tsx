@@ -28,7 +28,7 @@ const InvoiceModal = ({ close }: { close: any }) => {
       }}
     >
       <div
-        className="h-[auto] overflow-y-scroll my-8 inline-block w-full max-w-md transform overflow-hidden rounded-lg bg-white text-left align-middle shadow-xl transition-all"
+        className="h-[auto] overflow-y-scroll my-8 inline-block w-full max-w-md transform overflow-hidden rounded-lg bg-white text-start align-middle shadow-xl transition-all"
         onClick={(e) => {
           e.stopPropagation();
         }}

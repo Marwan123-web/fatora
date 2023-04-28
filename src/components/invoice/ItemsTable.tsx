@@ -5,7 +5,7 @@ const ItemsTable = ({ items }: { items: Array<any> }) => {
   const { t } = useTranslation("common");
 
   return (
-    <table className="w-full p-4 text-left">
+    <table className="w-full p-4 text-start">
       <thead>
         <tr className="border-b border-gray-900/10 text-sm md:text-base">
           <th>{t("invoice.item")}</th>

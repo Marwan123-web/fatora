@@ -63,3 +63,11 @@
 .active {
   color: rgb(56 189 248);
 }
+
+.receipt-bg {
+  background-image: url("./assets/images/receiptWatermark.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;
+  background-size: contain;
+}
