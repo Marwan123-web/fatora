@@ -29,7 +29,7 @@ const Receipt = ({ invoice }: { invoice: any }) => {
                 <th className="text-right">{t("invoice.amount")}</th>
               </tr>
             </thead>
-            <tbody className="h-[20vh]">
+            <tbody>
               {invoice.items.map((item: any) => (
                 <tr key={item.id}>
                   <td className="w-full">{item.name}</td>
