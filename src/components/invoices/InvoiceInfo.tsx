@@ -18,7 +18,6 @@ const InvoiceInfo = () => {
     window.location.href = "/invoices";
   }
   const SaveAsPDFHandler = async (e: any) => {
-    e.preventDefault();
     let htmlString = document.getElementById("print") as any;
     await htmlStringToPdf("1", htmlString);
   };

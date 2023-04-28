@@ -15,7 +15,6 @@ const InvoiceModal = ({ close }: { close: any }) => {
   const dispatch = useDispatch();
 
   const addNextInvoiceHandler = (e: any) => {
-    e.preventDefault();
     dispatch(addInvoice({ ...invoice, invoiceNumber: `${invoices.length}` }));
     dispatch(emptyInvoice());
     window.location.href = "/invoices/" + invoices.length;

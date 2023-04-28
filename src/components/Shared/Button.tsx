@@ -15,11 +15,11 @@ const Button = ({
 }) => {
   const { t } = useTranslation("common");
 
-  const runButtonFun = () => {
+  const runButtonFun = (e: any) => {
     if (ButtonFun) ButtonFun();
   };
   return (
-    <button className={classes} onClick={() => runButtonFun()} type={type}>
+    <button className={classes} onClick={(e) => runButtonFun(e)} type={type}>
       {label && t(label)}
       {!label && children}
     </button>
