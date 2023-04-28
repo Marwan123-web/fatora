@@ -1,4 +1,5 @@
 import "./App.scss";
+import "flowbite";
 import { useTranslation } from "react-i18next";
 import Invoice from "./components/invoice/Invoice";
 import { Routes, Route } from "react-router-dom";
@@ -13,7 +14,7 @@ function App() {
       dir={i18n.language === "en" ? "ltr" : "rtl"}
     >
       <NavBar />
-      <main className="pt-5">
+      <main className="p-5">
         <div className="mx-auto max-w-7xl">
           <Routes>
             <Route path="/" element={<Invoice />} />

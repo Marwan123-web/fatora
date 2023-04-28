@@ -44,7 +44,7 @@ const Invoices = () => {
               <th className="px-6 py-4">{invoice.customerName}</th>
               <td className="px-6 py-4 text-center">{invoice.items.length}</td>
               <td className="px-6 py-4 text-center">{invoice.total}</td>
-              <td>
+              <td className="px-6 py-4 text-center">
                 <Link
                   to={invoice.invoiceNumber}
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
